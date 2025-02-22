@@ -1,16 +1,15 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Login as LoginSchema } from "definitions/schemas";
+import { LoginSchema } from "@/definitions/schemas";
 import { useForm } from "react-hook-form";
-import { Login as LoginType } from "definitions/types";
-// import { Button } from "@/components/ui/button";
+import { LoginType } from "@/definitions/types";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -36,7 +35,6 @@ const LoginForm = () => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input id="name" placeholder="Name" {...field} />
               </FormControl>
@@ -44,7 +42,19 @@ const LoginForm = () => {
             </FormItem>
           )}
         />
-        {/* <Button type="submit">Submit</Button> */}
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input id="password" placeholder="Password" {...field} />
+              </FormControl>
+              <FormMessage>{form.formState.errors.name?.message}</FormMessage>
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
       </form>
     </Form>
   );

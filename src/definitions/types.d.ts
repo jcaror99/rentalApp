@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Login } from "./schemas";
+import { LoginSchema } from "./schemas";
 
-export type Login = z.infer<typeof Login>;
+export type LoginType = z.infer<typeof LoginSchema>;
 export type GenericObject = { [key: string]: string };

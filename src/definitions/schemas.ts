@@ -1,7 +1,7 @@
 import { z } from "zod";
-import getError from "ui/getError";
+import getError from "@/components/ui/getError";
 
-export const Login = z
+export const LoginSchema = z
   .object({
     name: z.string(),
     password: z.string().min(5, { message: getError("passwordLength") }),
