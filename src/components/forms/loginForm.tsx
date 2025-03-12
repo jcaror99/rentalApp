@@ -25,6 +25,7 @@ const LoginForm = () => {
 
   const onSubmit = (data: LoginType) => {
     console.log(data);
+    alert(JSON.stringify(data));
   };
 
   return (
