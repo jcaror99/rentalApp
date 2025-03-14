@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import authentication from "@/server/api/authentication";
 
 const LoginForm = () => {
   const form = useForm<LoginType>({
@@ -23,9 +24,8 @@ const LoginForm = () => {
     },
   });
 
-  const onSubmit = (data: LoginType) => {
-    console.log(data);
-    alert(JSON.stringify(data));
+  const onSubmit = async (data: LoginType) => {
+    await authentication(data);
   };
 
   return (
